@@ -1,5 +1,6 @@
 import random
 import telebot
+import requests
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 from flask import Flask
 
@@ -7,6 +8,13 @@ app = Flask(__name__)
 
 BOT_TOKEN = "7449691904:AAG1PPVODTRopC5qr7bzQ00aFi2NmKli5dQ"
 bot = telebot.TeleBot(BOT_TOKEN)
+WEBHOOK_URL = 'https://api.render.com/deploy/srv-ct1pl1d6l47c73bhpet0?key=WwkTOjGx53g'
+
+def set_webhook():
+    url = f'https://api.telegram.org/bot{TOKEN}/setWebhook?url={WEBHOOK_URL}'
+    response = requests.get(url)
+    return response.json()
+set_webhook()
 
 user_difficulties = {}
 
