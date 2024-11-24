@@ -1,6 +1,9 @@
 import random
 import telebot
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton
+from flask import Flask
+
+app = Flask(__name__)
 
 BOT_TOKEN = "7449691904:AAG1PPVODTRopC5qr7bzQ00aFi2NmKli5dQ"
 bot = telebot.TeleBot(BOT_TOKEN)
