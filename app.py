@@ -14,7 +14,6 @@ def set_webhook():
     url = f'https://api.telegram.org/bot{BOT_TOKEN}/setWebhook?url={WEBHOOK_URL}'
     response = requests.get(url)
     return response.json()
-set_webhook()
 
 user_difficulties = {}
 
@@ -158,4 +157,5 @@ def main():
         print(f"Error occurred: {e}")
 
 if __name__ == "__main__":
-    main()
+    set_webhook()
+    app.run(host='0.0.0.0', port=5000)
